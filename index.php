@@ -42,7 +42,6 @@ try {
 
 <table>
   <tr>
-    <th>ID</th>
     <th>Location</th>
     <th>Time</th>
   </tr>
@@ -50,7 +49,6 @@ try {
     if($item['starting_time']>=date('Y-m-d')){?>
 
   <tr>
-    <th><?= $item['id'] ?></th>
     <td><?= $item['location'] ?></td>
     <td><?= $item['starting_time'] ?></td>
   </tr>

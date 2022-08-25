@@ -32,7 +32,7 @@ if(isset($_POST['location'])){
 
   try {
     $pdo = new PDO($dsn,'b2601c17bb7d3a','4ca3c775');
-    $sql = "select location, group_concat(distinct date_format(starting_time,'%Y-%m-%d %H:%i')) from schedule group by location";
+    $sql = 'select location, group_concat(distinct date_format(starting_time,"%Y-%m-%d %H:%i")) from schedule group by location';
     $stmt = $pdo->query($sql);
     $cmd = 'select location from schedule group by location';
     $all_location = $pdo->query($cmd);

@@ -20,10 +20,10 @@
   </style>
 </head>
 <?php
-$dsn ='mysql:host=localhost; dbname=basketball; charset=utf8;';
+$dsn ='mysql:host=us-cdbr-east-06.cleardb.net; dbname=heroku_e68d59e330d9c08; charset=utf8;';
 $msg = "Location and starting time";
 try {
-  $pdo = new PDO($dsn,'root','');
+  $pdo = new PDO($dsn,'b2601c17bb7d3a','4ca3c775');
   $sql = 'select * from schedule;';
   $stmt = $pdo->query($sql);
 } catch (PDOException $e){

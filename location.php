@@ -22,7 +22,7 @@
   </style>
 </head>
 <?php
-$dsn ='mysql:host=localhost; dbname=basketball; charset=utf8;';
+$dsn ='mysql:host=us-cdbr-east-06.cleardb.net; dbname=heroku_e68d59e330d9c08; charset=utf8;';
 $msg = 'Location and starting time';
 
 if(isset($_POST['location'])){
@@ -31,7 +31,7 @@ if(isset($_POST['location'])){
 
 
   try {
-    $pdo = new PDO($dsn,'root','');
+    $pdo = new PDO($dsn,'b2601c17bb7d3a','4ca3c775');
     $sql = 'select id, location, group_concat(distinct starting_time) from schedule group by location';
     $stmt = $pdo->query($sql);
     $cmd = 'select location from schedule group by location';

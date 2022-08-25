@@ -24,7 +24,7 @@ $msg = "Haven't chose a date";
 if(isset($_POST['date'])){
   $msg = $_POST['date'];
 }
-$dsn ='mysql:host=localhost; dbname=basketball; charset=utf8;';
+$dsn ='mysql:host=us-cdbr-east-06.cleardb.net; dbname=heroku_e68d59e330d9c08; charset=utf8;';
 $msg = 'Choose a date';
 
 
@@ -32,7 +32,7 @@ if(isset($_POST['date'])){
   $date = $_POST['date'];
   $msg = "List for {$date}";
   try {
-    $pdo = new PDO($dsn,'root','');
+    $pdo = new PDO($dsn,'b2601c17bb7d3a','4ca3c775');
     $sql = "select id, location, date_format(starting_time, '%H:%m') as starting_time from schedule where date(starting_time)=:date";
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':date',$date);

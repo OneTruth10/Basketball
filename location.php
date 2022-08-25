@@ -32,7 +32,7 @@ if(isset($_POST['location'])){
 
   try {
     $pdo = new PDO($dsn,'b2601c17bb7d3a','4ca3c775');
-    $sql = 'select id, location, group_concat(distinct starting_time) from schedule group by location';
+    $sql = "select location, group_concat(distinct date_format(starting_time,'%Y-%m-%d %H:%i')) from schedule group by location";
     $stmt = $pdo->query($sql);
     $cmd = 'select location from schedule group by location';
     $all_location = $pdo->query($cmd);
@@ -65,7 +65,7 @@ if(isset($_POST['location'])){
           <tr>
             <td><?= $item['location'] ?></td>
             <td><ul>
-              <?php foreach(explode(',',$item['group_concat(distinct starting_time)']) as $st){
+              <?php foreach(explode(',',$item['group_concat(distinct date_format(starting_time,"%Y-%m-%d %H:%i"))']) as $st){
                 if($st>=date('Y-m-d')){?>
                 <li><?=$st ?></li>
               <?php }}?>
@@ -77,7 +77,7 @@ if(isset($_POST['location'])){
 
     <td><?= $item['location'] ?></td>
     <td><ul>
-      <?php foreach(explode(',',$item['group_concat(distinct starting_time)']) as $st){
+      <?php foreach(explode(',',$item['group_concat(distinct date_format(starting_time,"%Y-%m-%d %H:%i"))']) as $st){
         if($st>=date('Y-m-d')){?>
         <li><?=$st ?></li>
       <?php }}?>

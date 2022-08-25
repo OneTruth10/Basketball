@@ -33,7 +33,7 @@ if(isset($_POST['date'])){
   $msg = "List for {$date}";
   try {
     $pdo = new PDO($dsn,'b2601c17bb7d3a','4ca3c775');
-    $sql = "select id, location, date_format(starting_time, '%H:%m') as starting_time from schedule where date(starting_time)=:date";
+    $sql = "select id, location, date_format(starting_time, '%H:%i') as starting_time from schedule where date(starting_time)=:date";
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':date',$date);
     $stmt->execute();

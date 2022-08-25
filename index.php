@@ -47,7 +47,7 @@ try {
     <th>Time</th>
   </tr>
   <?php foreach($stmt as $item){
-    if($st>=date('Y-m-d')){?>
+    if($item['starting_time']>=date('Y-m-d')){?>
 
   <tr>
     <th><?= $item['id'] ?></th>
